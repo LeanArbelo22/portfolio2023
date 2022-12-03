@@ -16,7 +16,7 @@ function App() {
     if (location.pathname === '/' && window.innerWidth > 768) {
       setTimeout(() => {
         setMenuState(true)
-      }, 6000)
+      }, 5000)
     }
 
     console.log(location.pathname)

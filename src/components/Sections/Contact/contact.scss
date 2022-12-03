@@ -1,6 +1,6 @@
 @import "../../../global.scss";
 
-$icon-size: clamp(20px, 2.3vw, 60px);
+$icon-size: clamp(20px, 2.65vw, 60px);
 
 .contact {
     position: relative;
@@ -9,92 +9,214 @@ $icon-size: clamp(20px, 2.3vw, 60px);
     display: flex;
     align-items: center;
 
+    &:target {
+        .about-me-container {
+            animation: displayCard 2s;
+        }
+
+        .contact-form {
+            animation: displayForm 2s;
+        }
+    }
+
     .about-me-container {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mobile {
+            width: 100%;
+        }
 
         .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
 
             .card {
                 border-radius: 20px;
                 background-color: $white;
                 position: relative;
-                width: max(380px, 25vw);
-                min-height: 50vh;
+                width: max(320px, 30vw);
+                min-height: 52vh;
 
-                @include not-mobile {
-                    .media-icons {
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        position: absolute;
-                        bottom: 10px;
-
-                        a {
-                            text-decoration: none;
-                            color: $darkBrown;
-                        }
-                        
-                        i, svg {
-                            opacity: .7;
-                            font-size: $icon-size;
-                            margin-right: 5px;
-                            transition: opacity .6s;
-
-                            &:hover {
-                                opacity: 1;
-                            }
-                        }
-                    }
+                @include mobile {
+                    height: 100%;
                 }
 
-                &::before {
-                    content: "";
-                    position: absolute;
+                .media-icons {
                     width: 100%;
-                    height: 40%;
-                    background-color: $softBrown;
-                    border-radius: 20px 20px 0 0;
-                }
-
-                .card-container {
-                    padding: max(30px, 3vw);
                     display: flex;
-                    flex-direction: column;
                     align-items: center;
-                    position: relative;
-                    z-index: 30;
+                    justify-content: center;
+                    position: absolute;
+                    bottom: 10px;
 
-                    .headers {
-                        align-self: flex-start;
-                        p {
-                            font-weight: 500;
-                        }
+                    a {
+                        text-decoration: none;
+                        color: $darkBrown;
                     }
 
-                    .profile-img {
-                        width: max(140px, 10vw);
-                        height: max(140px, 10vw);
-                        border-radius: 50%;
-                        padding: 4px;
-                        background-color: $softBrown;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
+                    i,
+                    svg {
+                        opacity: .7;
+                        font-size: $icon-size;
+                        margin-right: 10px;
+                        transition: opacity .6s;
 
-                        /* @include mobile {
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 30%;
+                background-color: $darkBrown;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .card-container {
+                padding: max(30px, 3vw);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                z-index: 30;
+
+                .headers {
+                    align-self: flex-start;
+                    padding: 10px 0 5px 0;
+
+                    p {
+                        font-weight: 500;
+                    }
+                }
+
+                .my-description {
+                    padding: 20px 0 30px 0;
+
+                    p {
+                        line-height: 25px;
+                    }
+                }
+
+                .profile-img {
+                    width: max(140px, 10vw);
+                    height: max(140px, 10vw);
+                    border-radius: 50%;
+                    padding: 4px;
+                    background-color: $darkBrown;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    /* @include mobile {
                             display: none;
                         } */
 
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                            border-radius: 50%;
-                            border: 3.5px solid $darkYellow;
-                        }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        border: 3.5px solid $darkYellow;
                     }
                 }
             }
         }
+    }
+}
+
+.contact-form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @include mobile {
+        display: none;
+    }
+
+    form {
+        width: 70%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        input {
+            width: 22.5vw;
+            height: 30px;
+            font-size: 14px;
+            padding: 3px;
+        }
+
+        textarea {
+            width: 22.5vw;
+            height: 200px;
+            font-size: 14px;
+            padding: 6px 3px;
+            resize: none;
+        }
+
+        input[type='submit'] {
+            height: 30px;
+            color: $darkBrown;
+            background-color: $lightBrown;
+            border: none;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        span {
+            animation: showAlert .8s;
+            color: $softBrown;
+            font-weight: 600;
+        }
+    }
+}
+}
+
+@keyframes displayCard {
+    0% {
+        transform: translateY(200%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes displayForm {
+    0% {
+        transform: translateY(-200%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes showAlert {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

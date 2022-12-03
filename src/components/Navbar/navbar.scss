@@ -19,7 +19,7 @@
     .wrapper {
         width: 100%;
 
-        padding: 1rem max(1.4rem, (100% - 140em) / 2);
+        padding: .7rem max(1.4rem, (100% - 140em) / 2); // modificado
         // que el padding x sea de 1.4rem pero en caso de que lo que sobre entre el ancho del contenedor y la longitud del texto dividido 2 (izq, der) sea mayor que 2rem, el valor sera el resultado de la operacion
 
         @include flex-linear;

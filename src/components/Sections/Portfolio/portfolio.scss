@@ -1,12 +1,13 @@
 @import "../../../global.scss";
 
 .portfolio-pages {
-    font-size: clamp(16px, 1.4vw, 34px);
-    padding: 10px 13px;
+    font-size: clamp(16px, 1.3vw, 34px);
+    padding: 5px 13px;
     border-radius: 40%;
     cursor: pointer;
     transition-property: color, background-color;
     transition-duration: .5s;
+    margin: 0 4px;
 
     &.active {
         animation: moveCircles 2.5s both infinite;
@@ -29,14 +30,14 @@
 
     ul {
         width: max-content;
-        height: 80px;
+        height: 70px;
         position: relative;
-        top: 0;
-        margin-top: 10px;
+        top: -15px; // modificado
+        z-index: 27; // modificado
+        margin-top: 5px; // modificado
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
         transition: transform 1s;
 
         &.open {
@@ -47,7 +48,7 @@
     .card-container {
         width: 100%;
         height: 100%;
-        padding: 20px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -56,8 +57,9 @@
 
         h4 {
             position: absolute;
-            top: 5px;
-            font-size: clamp(15px, 1.9vw, 45px);
+            z-index: 26; // modificado
+            top: 0; // modificado
+            font-size: clamp(14px, 1.7vw, 50px);
             transition: transform 1s;
 
             &.open {
@@ -66,15 +68,14 @@
         }
 
         .card-item {
-            min-width: 45%;
-            max-width: 47%;
-            margin: 5px;
+            width: clamp(350px, 40%, 47vw); // !! modificado
+            margin: 0 5px;
             cursor: pointer;
 
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-grow: 1;
+            // flex-grow: 1
 
             overflow: hidden;
 
