@@ -1,0 +1,80 @@
+@import "../../global.scss";
+
+.menu {
+    width: 300px;
+    height: 100vh;
+    background-color: $darkBrown;
+    
+    position: fixed;
+    top: 0;
+    right: -300px;
+    z-index: 13;
+    
+    @include flex-col;
+    align-items: center;
+    
+    transition: all 1s;
+
+    @include mobile{
+        width: 100vw;
+        right: -100vw;
+    }
+
+    &.active {
+        right: 0;
+        background-color: $darkYellow;
+    }
+
+    .items {
+        font-size: clamp(30px, 2.8vw, 2.4rem);
+        font-weight: 600;
+        list-style: none;
+        margin: 0;
+        color: $darkBrown;
+        font-family: 'Coolvetica', sans-serif;
+        width: 60%;
+
+        @include mobile-horizontal {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            transition: opacity .3s;
+            margin-bottom: 45px;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            opacity: .7;
+
+            @include mobile-horizontal {
+                margin-right: 25px;
+            }
+
+            a {
+                color: inherit;
+                font-size: inherit;
+                text-decoration: none;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    span {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        font-size: 16px;
+        font-weight: 500;
+        color: inherit;
+        opacity: 0.7;
+        font-family: 'Coolvetica', sans-serif;
+
+        @include lg-computer {
+            font-size: 1.1rem;
+        }
+    }
+}

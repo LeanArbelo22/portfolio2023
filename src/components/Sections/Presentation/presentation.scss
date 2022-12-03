@@ -1,0 +1,200 @@
+@import "../../../global.scss";
+
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+.presentation {
+    position: relative;
+    z-index: 9;
+    @include flex-linear;
+    justify-content: center;
+    overflow: hidden;
+
+
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &.open {
+        .circle {
+            transform: scale(12);
+        }
+
+        .container {
+            transform: translateX(-150px);
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 11;
+
+        transition: transform 1s;
+
+        user-select: none;
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            @include mobile {
+                align-items: center;
+            }
+
+            .name {
+                font-size: clamp(40px, 6vw, 150px);
+                margin: 25px 0;
+                font-weight: 700;
+                font-family: 'Coolvetica';
+                padding: 5px;
+                color: #fff;
+                position: relative;
+
+                text-shadow: 0 0 .09em rgb(57, 91, 100, .7);
+                animation: showHeader 2s 2.5s both;
+
+                /* background: url(../../../../public/img/text-fill.png);
+                -webkit-background-clip: text;
+                background-clip: text;
+                animation: move-lines 70s linear infinite;
+
+                -webkit-text-fill-color: transparent;
+                -webkit-animation: move-lines 80s linear infinite;
+
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0,0,0);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden; */
+            }
+
+            h3 {
+                padding: 0 15px;
+                font-size: clamp(20px, 1.9em, 60px);
+                font-family: 'Coolvetica', sans-serif;
+                margin-bottom: 30px;
+
+                span {
+                    color: #2B4865;
+                }
+
+                @include mobile {
+                    font-size: 20px;
+                }
+            }
+
+            .title {
+                animation: showInfo 1.7s 4.8s both linear;
+                align-self: flex-start;
+            }
+
+            .tech {
+                align-self: flex-end;
+                animation: showInfo 1.7s 5.8s both linear;
+            }
+        }
+    }
+
+    .circle {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+
+        transition: transform 1.5s;
+
+        .circle-animation {
+            width: 100%;
+            height: 100%;
+            background-color: $darkYellow;
+            clip-path: circle(5%);
+            display: flex;
+            justify-content: center;
+            position: relative;
+            animation: showCircle 5s both;
+
+            @include mobile {
+                animation: showCircleMobile 5s both;
+            }
+
+            transition: transform 1s;
+        }
+    }
+}
+
+@keyframes showCircle {
+    0% {
+        transform: translate(0, 100%);
+        opacity: .15;
+
+    }
+
+    50% {
+        transform: translate(0, 85%) scale(17);
+        opacity: .55;
+    }
+
+    100% {
+        transform: scale(9);
+        opacity: .99;
+    }
+}
+
+@keyframes showCircleMobile {
+    0% {
+        transform: translate(0, 100%);
+        opacity: .15;
+    }
+
+    50% {
+        transform: translate(0, 85%) scale(17);
+        opacity: .55;
+    }
+
+    100% {
+        transform: scale(12);
+        opacity: .99;
+    }
+}
+
+@keyframes showHeader {
+    0% {
+        transform: scale(0);
+        opacity: .2;
+    }
+
+    75% {
+        transform: scale(1.05);
+        //text-shadow: -2px 2px 2px #1f13015d;
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+        //text-shadow: 2px 2px 3px #1f1f1fb1;
+    }
+}
+
+@keyframes showInfo {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes move-lines {
+    0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+
+@-webkit-keyframes move-lines {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}

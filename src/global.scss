@@ -1,0 +1,82 @@
+// COLOR PALETTE
+$lightYellow: #ffe240;
+$darkYellow: #ffa43a; // #ffa800;
+$lightBrown: #9d5a0b;
+$softBrown: #5a3908;
+$darkBrown:  #1f130f;
+
+$lightYellow: #fff;
+$darkYellow: #F3ECB0;
+$lightBrown: #ADE792;
+$softBrown: #6ECCAF;
+$darkBrown:  #344D67;
+
+$lightYellow: #D2D98C;
+$darkYellow: #BFB040;
+$lightBrown: #885c91;
+$softBrown: #5e1f4a;
+$darkBrown:  #2A0F2E;
+
+$lightYellow: #fff;
+$darkYellow: #6ccdb6; // #86d5c2;
+$lightBrown: #256D85;
+$softBrown: #2B4865;
+$darkBrown:  #002B5B;
+
+$white: #f2f2f2;
+$lightYellow: #fff;
+$darkYellow: #E7F6F2; // #86d5c2;
+$lightBrown: #A5C9CA;
+$softBrown: #395B64;
+$darkBrown:  #2C3333;
+
+// FONTS
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets/fonts/CoolveticaRg-Regular.woff2") format("woff2");
+}
+
+// MIXINS
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sm-mobile {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin mobile-horizontal {
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin not-mobile {
+  @media not screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg-computer {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin flex-linear {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// SIZES
+$navbarHeight: clamp(7vh, 85px, 11vh); // que el alto sea del 80px a menos que 80px sea mayor que 25%

@@ -1,0 +1,161 @@
+@import "../../global.scss";
+
+.navbar {
+    width: 100%;
+    height: $navbarHeight;
+    background-color: $darkBrown;
+    color: $darkYellow;
+    position: fixed;
+    top: 0;
+    z-index: 14; // section (1) menu (2) nav (3)
+
+    @include flex-linear;
+
+    will-change: color; // **
+
+    transition-property: background-color, color;
+    transition-duration: 1s;
+
+    .wrapper {
+        width: 100%;
+
+        padding: 1rem max(1.4rem, (100% - 140em) / 2);
+        // que el padding x sea de 1.4rem pero en caso de que lo que sobre entre el ancho del contenedor y la longitud del texto dividido 2 (izq, der) sea mayor que 2rem, el valor sera el resultado de la operacion
+
+        @include flex-linear;
+        justify-content: space-between;
+
+        .left {
+            @include flex-linear;
+
+            .logo {
+                font-family: 'Coolvetica', sans-serif;
+
+                font-size: clamp(25px, 2.8vw, 4rem);
+                // cuando 2.8vh sea menor a 25px la fuente sera 25px, cuando se mayor que 4rem, 4rem 
+
+                font-weight: 600;
+                text-decoration: none;
+                color: inherit;
+
+                opacity: .8; // **
+
+                margin-right: 30px; // min(50px, 1vw); que tenga un margen de 30px a menos que 2vw > 30px, si true margin-r: 2vw
+            }
+
+            .data-container {
+                @include flex-linear;
+                align-self: flex-end;
+                height: 100%;
+                margin-left: 15px;
+                opacity: .55;
+                transition: opacity 1s;
+
+                span {
+                    @include flex-linear;
+                    font-weight: 600;
+                    font-size: clamp(13px, 1.02vw, 3rem);
+                    font-family: 'Coolvetica', sans-serif;
+                    letter-spacing: 2px;
+
+                    @include mobile {
+                        letter-spacing: 1px;
+                    }
+
+                    a {
+                        color: $darkYellow;
+                        text-decoration: none;
+                        margin: 8px 14px;
+                        transition: color .4s;
+                    
+                        &:hover {
+                            color: $lightYellow;
+                        }
+                    }
+
+                }
+
+                .icon {
+                    font-size: clamp(12px, 1vw, 3rem);
+                }
+
+                &:not(.cv) {
+                    @include mobile {
+                        display: none;
+                    }
+                }
+
+
+
+            }
+        }
+
+        .right {
+            .burguer {
+                width: max(26px, 1vw);
+                height: max(26px, 1vw);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                cursor: pointer;
+
+                span {
+                    width: 100%;
+                    height: max(4px, .15vw);
+                    background-color: $lightBrown;
+                    transform-origin: left; // !!
+                    transition-property: transform, opacity, background-color;
+                    transition-duration: .7s;
+                    opacity: 0.9;
+                }
+
+                @include mobile-horizontal {
+                    width: 20px;
+                    height: 20px;
+
+                    span {
+                        height: 3px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.active {
+        background-color: $darkYellow;
+        color: $darkBrown;
+
+        .left {
+            .data-container {
+                opacity: 0;
+
+                a {
+                    cursor: default;
+                }
+            }
+        }
+
+        .right {
+            .burguer {
+                span {
+                    &:first-child {
+                        background-color: $softBrown;
+                        transform: rotate(55deg); // **
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:last-child {
+                        background-color: $softBrown;
+                        transform: rotate(-55deg); // **
+                    }
+                }
+            }
+        }
+    }
+}

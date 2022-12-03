@@ -1,0 +1,4 @@
+resolver: Fuente en general
+cambiar fuentes a assets pubilco
+mover right to left en presentation
+cambiar colores de fondo ** cambiar color cuando se abre el menu

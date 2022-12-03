@@ -1,0 +1,50 @@
+@import "../../../global.scss";
+
+.scroll-down {
+    position: absolute;
+    left: calc(50% - 20px);
+    bottom: 20px;
+    z-index: 100;
+    text-decoration: none;
+    text-shadow: 0;
+    z-index: 12;
+    
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    
+    transition: transform 1s;
+    transform: translate(-0%, 0%);
+    
+    svg:not(.rotate) {
+        animation: fade_move_down 3.5s 6s backwards ease-in-out infinite;
+
+        @include mobile {
+            animation: fade_move_down 3.5s ease-in-out infinite;
+        }
+    }
+
+    svg.rotate {
+        transform: rotate(-180deg);
+    }
+
+    &.open {
+        transform: translateX(-300%);
+    }
+}
+
+@keyframes fade_move_down {
+    0% {
+        transform: translate(0, -10px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translate(0, 10px);
+        opacity: 0;
+    }
+}
