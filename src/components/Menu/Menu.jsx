@@ -7,7 +7,7 @@ const Items = ({ menuState, handleMenu }) => {
         { title: 'Home', link: '#presentation', download: false },
         { title: 'Portfolio', link: '#portfolio', download: false },
         { title: 'Contact', link: '#contact', download: false },
-        { title: 'Curriculum', link:'notas.txt', download: true}
+        { title: 'Curriculum', link:'CV2023-LeandroArbelo-ESP.pdf', download: true}
     ];
 
     return (
@@ -17,7 +17,7 @@ const Items = ({ menuState, handleMenu }) => {
                     <li key={item + i}>
                         <a 
                           href={item.link}
-                          download={item.download && 'CV-LeandroArbelo-Nov2022.pdf'} 
+                          download={item.download && 'CV-LeandroArbelo-Dic2022.pdf'} 
                           onClick={() => handleMenu(!menuState)}>
                             {item.title}
                         </a>

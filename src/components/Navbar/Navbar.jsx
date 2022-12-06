@@ -39,8 +39,8 @@ const DataItems = () => {
                 <DownloadForOfflineIcon className='icon' />
                 <span>
                     <a 
-                      href='notas.txt' 
-                      download={`CV-LeandroArbelo-Nov2022.pdf`}>Curriculum</a>
+                      href='CV2023-LeandroArbelo-ESP.pdf' 
+                      download={`CV-LeandroArbelo-Dic2022.pdf`}>Curriculum</a>
                 </span>
             </div>
         </>
